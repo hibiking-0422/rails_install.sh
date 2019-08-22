@@ -144,3 +144,4 @@ gem install bundler
 rails new sample_app
 cd sample_app
 bundle install
+reboot
