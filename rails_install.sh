@@ -92,7 +92,7 @@ $ vagrant up --provision
 $ vagrant ssh
 -----------------------------------------------------------------------
 6.あとはこのコマンドを仮想マシンで打てば終わり！１５分くらいかかるよい
-$curl -sf　https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/rails_install.sh
+$bash <(curl -s https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/rails_install.sh)
 -----------------------------------------------------------------------
 commentout
 
