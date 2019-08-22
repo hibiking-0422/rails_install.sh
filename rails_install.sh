@@ -1,7 +1,7 @@
 #!/bin/bash
 
 <<commentout
-
+vagrant(https://www.vagrantup.com/)とvirtualbox(https://www.virtualbox.org/)はあらかじめ入れといてね
 ----------------------------------------------------------------------
 1.任意の場所にファイルを作成
 $mkdir MyRails
@@ -136,6 +136,15 @@ sudo yum install -y sqlite-devel
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
 
+#Apache install
+sudo yum -y install httpd httpd-devel curl-devel apr-devel apr-util-devel
+sudo systemctl enable httpd
+
+#Passenger install
+sudo yum install -y epel-release pygpgme curl
+sudo curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
+sudo yum install -y mod_passenger
+
 #sample rails
 cd
 mkdir workspace
@@ -145,3 +154,27 @@ rails new sample_app
 cd sample_app
 bundle install
 reboot
+
+<<out
+/etc/httpd/conf.d/passenger.conf を以下に修正
+
+<IfModule mod_passenger.c>
+   PassengerRoot /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini
+   PassengerRuby /home/vagrant/.rbenv/shims/ruby
+   PassengerInstanceRegistryDir /var/run/passenger-instreg
+</IfModule>
+
+<VirtualHost *:80>
+   ServerName localhost
+   # Be sure to point to 'public'!
+   DocumentRoot /var/www/rails_app/public
+   <Directory /var/www/rails_app/public>
+      # Relax Apache security settings
+      AllowOverride all
+      Require all granted
+      # MultiViews must be turned off
+      Options -MultiViews
+   </Directory>
+</VirtualHost>
+
+<<out
