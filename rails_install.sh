@@ -136,23 +136,6 @@ sudo yum install -y sqlite-devel
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
 
-#Apache install
-sudo yum -y install httpd httpd-devel curl-devel apr-devel apr-util-devel
-sudo systemctl enable httpd
-
-#Passenger install
-sudo yum install -y epel-release pygpgme curl
-sudo curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
-sudo yum install -y mod_passenger
-
-#sample rails
-cd
-mkdir workspace
-cd workspace
-gem install bundler
-rails new sample_app
-cd sample_app
-bundle install
 reboot
 
 <<out
