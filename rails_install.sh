@@ -91,7 +91,7 @@ $ vagrant up --provision
 5.仮想マシンに接続
 $ vagrant ssh
 -----------------------------------------------------------------------
-6.あとはこのコマンドを仮想マシンで打てば終わり！１５分くらいかかるよい
+6.あとはこのコマンドを仮想マシンで打てば終わり！１５分くらいかかるよ
 $bash <(curl -s https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/rails_install.sh)
 -----------------------------------------------------------------------
 commentout
@@ -150,27 +150,3 @@ sudo yum install -y epel-release
 sudo yum install -y nodejs npm
 
 reboot
-
-<<out
-/etc/httpd/conf.d/passenger.conf を以下に修正
-
-<IfModule mod_passenger.c>
-   PassengerRoot /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini
-   PassengerRuby /home/vagrant/.rbenv/shims/ruby
-   PassengerInstanceRegistryDir /var/run/passenger-instreg
-</IfModule>
-
-<VirtualHost *:80>
-   ServerName localhost
-   # Be sure to point to 'public'!
-   DocumentRoot /var/www/rails_app/public
-   <Directory /var/www/rails_app/public>
-      # Relax Apache security settings
-      AllowOverride all
-      Require all granted
-      # MultiViews must be turned off
-      Options -MultiViews
-   </Directory>
-</VirtualHost>
-
-<<out
