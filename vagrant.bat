@@ -10,6 +10,6 @@ del Vagrantfile
 
 curl -O https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/Vagrantfile
 
-vagrant up --provision
+vagrant up 
 
 vagrant ssh
