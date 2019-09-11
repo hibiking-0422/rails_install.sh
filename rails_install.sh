@@ -51,7 +51,7 @@ rbenv rehash
 rbenv global 2.6.3
 
 #rails install
-gem i -v 5.2.3 rails
+gem install rails
 
 # gem bundler install
 gem install bundler
@@ -62,5 +62,7 @@ sudo yum install -y sqlite-devel
 #Node.js install
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
+
+bundle exec rails webpacker:install
 
 reboot
