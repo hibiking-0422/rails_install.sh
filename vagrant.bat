@@ -1,8 +1,8 @@
 cd /d %HOMEDRIVE%%HOMEPATH%
 
-mkdir MyRails_test
+mkdir MyRails_Vagrant
 
-cd MyRails_test
+cd MyRails_Vagrant
 
 vagrant init bento/centos-7.3
 
