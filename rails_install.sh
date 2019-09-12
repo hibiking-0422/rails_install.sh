@@ -26,6 +26,11 @@ sudo yum install -y git
 # Ruby Required
 sudo yum install -y bzip2 gcc openssl-devel readline-devel zlib-devel
 
+#needed pachage
+sudo yum install -y openssl-devel readline-devel zlib-devel
+sudo yum install -y gcc-c++
+sudo yum -y install bzip2
+
 #rbenv install
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
@@ -33,15 +38,12 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 
 #ruby-build install
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+cd ~/.rbenv/plugins/ruby-build
+sudo ./install.sh
 
 #needed ruby pachage
 sudo yum install -y openssl-devel readline-devel zlib-devel
-
-#needed pachage
-sudo yum install -y openssl-devel readline-devel zlib-devel
-sudo yum install -y gcc-c++
-sudo yum -y install bzip2
 
 #ruby install
 rbenv install 2.6.3
@@ -49,7 +51,7 @@ rbenv rehash
 rbenv global 2.6.3
 
 #rails install
-gem install rails
+gem i -v 5.2.3 rails
 
 # gem bundler install
 gem install bundler
@@ -60,10 +62,5 @@ sudo yum install -y sqlite-devel
 #Node.js install
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
-
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-sudo yum install　yarn
-
-rails webpacker:install
 
 reboot
