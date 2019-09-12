@@ -31,18 +31,16 @@ sudo yum install -y openssl-devel readline-devel zlib-devel
 sudo yum install -y gcc-c++
 sudo yum -y install bzip2
 
-
-
-#ruby-build install
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-cd ~/.rbenv/plugins/ruby-build
-sudo ./install.sh
-
 #rbenv install
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 source ~/.zshrc
+
+#ruby-build install
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+cd ~/.rbenv/plugins/ruby-build
+sudo ./install.sh
 
 #needed ruby pachage
 sudo yum install -y openssl-devel readline-devel zlib-devel
