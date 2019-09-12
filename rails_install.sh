@@ -33,7 +33,7 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 
 #ruby-build install
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 cd ~/.rbenv/plugins/ruby-build
 sudo ./install.sh
 
