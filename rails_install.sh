@@ -32,10 +32,10 @@ sudo yum install -y gcc-c++
 sudo yum -y install bzip2
 
 #rbenv install
-git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-source ~/.zshrc
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
 
 #ruby-build install
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
