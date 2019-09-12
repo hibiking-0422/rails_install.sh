@@ -66,7 +66,7 @@ sudo yum install -y nodejs npm
 
 #install yarn
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-sudo yum install yarn
+sudo yum install -y yarn
 
 #install webpacker
 rails webpacker:install
