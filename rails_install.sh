@@ -63,6 +63,9 @@ sudo yum install -y sqlite-devel
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
 
-bundle exec rails webpacker:install
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+sudo yum install yarn
+
+rails webpacker:install
 
 reboot
