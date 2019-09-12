@@ -71,4 +71,12 @@ sudo yum install -y yarn
 #install webpacker
 rails webpacker:install
 
+#rails test
+cd 
+mkdir testspace
+cd testspace 
+rails new test_app
+cd test_app
+bundle
+
 reboot
