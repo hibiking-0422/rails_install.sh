@@ -34,8 +34,6 @@ source ~/.bash_profile
 
 #ruby-build install
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-cd ~/.rbenv/plugins/ruby-build
-sudo ./install.sh
 
 #needed ruby pachage
 sudo yum install -y openssl-devel readline-devel zlib-devel
