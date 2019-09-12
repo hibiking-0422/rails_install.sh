@@ -7,7 +7,7 @@ vagrant(https://www.vagrantup.com/)とvirtualbox(https://www.virtualbox.org/)は
 たった３回コマンドを打つだけでおけ！
 $curl -O https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/vagrant.bat
 $vagrant.bat
-$bash <(curl -s https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/rails_install.sh)
+$bash <(curl -s https://raw.githubusercontent.com/hibiking-0422/rails_install.sh/master/rails6.0_install.sh)
 -----------------------------------------------------------------------
 commentout
 
@@ -52,7 +52,7 @@ rbenv rehash
 rbenv global 2.6.3
 
 #rails install
-gem i -v 5.2.3 rails
+gem install rails
 
 # gem bundler install
 gem install bundler
@@ -63,5 +63,12 @@ sudo yum install -y sqlite-devel
 #Node.js install
 sudo yum install -y epel-release
 sudo yum install -y nodejs npm
+
+#install yarn
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+sudo yum install yarn
+
+#install webpacker
+rails webpacker:install
 
 reboot
