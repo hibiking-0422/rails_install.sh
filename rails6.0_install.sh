@@ -71,6 +71,13 @@ sudo yum install -y yarn
 #install webpacker
 rails webpacker:install
 
+#mysql
+sudo yum remove -y mariadb-libs
+sudo yum localinstall -y https://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm
+sudo yum install -y mysql-community-server
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
 #rails test
 cd 
 mkdir testspace
