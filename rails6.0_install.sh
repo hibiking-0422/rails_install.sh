@@ -91,3 +91,59 @@ cd test_app
 bundle
 
 reboot
+
+<<commentout
+-----------  mysql接続手順  -----------
+
+$grep password /var/log/mysqld.log
+-初期パスワードを確認
+
+$mysql -u root -p
+-さっきのパスワードを入力してログイン
+
+mysql>ALTER USER 'root'@'localhost' IDENTIFIED BY '[好きなパスワード]';
+-rootユーザのパスワードの再設定
+
+mysql>exit
+$mysql -u root -p
+-新しいパスワードで再度ログイン
+
+mysql>create user '[ユーザ名]'@'[ホスト名]' identified by '[パスワード]';
+#新規ユーザの作成
+
+mysql>grant all on *.* to '[ユーザ名]'@'[ホスト名]';
+#ユーザに権限付与(とりあえず全部与えとく)
+
+-----------  /config/database.yml　に以下を記述  -----------
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: [アプリ名]_development
+  pool: 5
+  username: [ユーザ名]
+  password: [パスワード]
+  host: [ホスト名/localhostとか]
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: [アプリ名]_test
+  pool: 5
+  username: [ユーザ名]
+  password: [パスワード]
+  host: [ホスト名/localhostとか]
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database:  [アプリ名]_production
+  pool: 5
+  username: [ユーザ名]
+  password: [パスワード]
+  host: [ホスト名/localhostとか]
+
+commentout
+
