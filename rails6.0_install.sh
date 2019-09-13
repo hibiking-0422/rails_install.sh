@@ -79,6 +79,9 @@ sudo systemctl enable mysqld
 sudo yum install mysql-devel
 gem install mysql2 -v '0.5.2' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
 
+#webpacker install
+rails webpacker:install
+
 #rails test
 cd 
 mkdir testspace
@@ -86,8 +89,5 @@ cd testspace
 rails new test_app -d mysql
 cd test_app
 bundle
-
-#webpacker install
-rails webpacker:install
 
 reboot
