@@ -76,7 +76,7 @@ sudo systemctl start mysqld
 sudo systemctl enable mysqld
 
 #mysql -v 0.5.2
-sudo yum install mysql-devel
+sudo yum install -y mysql-devel
 gem install mysql2 -v '0.5.2' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
 
 #webpacker install
