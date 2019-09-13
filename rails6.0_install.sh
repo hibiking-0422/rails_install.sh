@@ -68,9 +68,6 @@ sudo yum install -y nodejs npm
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo yum install -y yarn
 
-#install webpacker
-rails webpacker:install
-
 #mysql
 sudo yum remove -y mariadb-libs
 sudo yum localinstall -y https://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm
@@ -78,12 +75,19 @@ sudo yum install -y mysql-community-server
 sudo systemctl start mysqld
 sudo systemctl enable mysqld
 
+#mysql -v 0.5.2
+sudo yum install mysql-devel
+gem install mysql2 -v '0.5.2' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
+
 #rails test
 cd 
 mkdir testspace
 cd testspace 
-rails new test_app
+rails new test_app -d mysql
 cd test_app
 bundle
+
+#webpacker install
+rails webpacker:install
 
 reboot
